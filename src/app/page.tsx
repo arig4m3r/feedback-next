@@ -13,7 +13,7 @@ export default function Home() {
     setInput("");
     setLoading(true);
     try {
-      const res = await fetch("/api/getFeedback", {
+      await fetch("/api/getFeedback", {
         body: JSON.stringify({ message }),
         method: "post",
       })
@@ -22,14 +22,14 @@ export default function Home() {
           setFeedbacks([feedback, ...feedbacks]);
         });
     } catch (error) {
-      alert("Um erro aconteceu");
+      alert("Um erro aconteceuEr");
       console.error(error);
     }
     setLoading(false);
   }
 
   return (
-    <div className="bg-gray-900 w-screen h-screen">
+    <div className="bg-gray-300 dark:bg-gray-900 w-screen h-screen">
       <label
         htmlFor="default-search"
         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
