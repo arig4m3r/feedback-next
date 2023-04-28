@@ -1,5 +1,7 @@
 const { Configuration, OpenAIApi } = require("openai");
 
+let id = 0;
+
 export async function POST(request: Request) {
     const { message } = await request.json()
     if (!message) return console.error('ERRO: Insira a mensagem');
@@ -19,8 +21,10 @@ export async function POST(request: Request) {
 
     try {
         const res = JSON.parse(completion.data.choices[0].message.content)
+        id++;
         return new Response(JSON.stringify({
             message,
+            id,
             ...res
         }))
     } catch (error) {

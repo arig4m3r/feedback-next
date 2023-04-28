@@ -1,3 +1,4 @@
+import { Feedback } from '@/types/types'
 import React from 'react'
 import SolutionsModal from './SolutionsModal'
 
